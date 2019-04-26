@@ -24,3 +24,7 @@ $ct-app-theme: mat-light-theme($ct-app-primary, $ct-app-accent, $ct-app-warn);
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include angular-material-theme($ct-app-theme);
+
+body {
+  background-color: mat-color($mat-grey, 50);
+}

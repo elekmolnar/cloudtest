@@ -1,5 +1,5 @@
-<mat-card>
-  <mat-form-field class="search-container" fxFlex="grow">
+<mat-card class="search-container">
+  <mat-form-field fxFlex="grow">
     <input matInput type="search" placeholder="Search repository" #inputElement [(ngModel)]="searchValue" />
     <button mat-button *ngIf="searchValue" matSuffix mat-icon-button aria-label="Clear" (click)="searchValue = ''">
       <mat-icon>close</mat-icon>

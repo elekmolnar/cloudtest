@@ -1,0 +1,9 @@
+@import '~@angular/material/theming';
+$ct-app-primary: mat-palette($mat-cyan);
+$ct-app-accent: mat-palette($mat-orange, A200, A100, A400);
+$ct-app-warn: mat-palette($mat-red);
+
+$primary: mat-color($ct-app-primary);
+$primary-light: mat-color($ct-app-primary, 50);
+$accent: mat-color($ct-app-accent);
+$warn: mat-color($ct-app-warn);
