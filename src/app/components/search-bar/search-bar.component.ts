@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
 import { fromEvent, Observable, Subscription } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
+import { RepositoriesService } from '../../shared/services/repositories.service';
 
 @Component({
   selector: 'app-search-bar',
@@ -9,10 +10,13 @@ import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 })
 export class SearchBarComponent implements AfterViewInit, OnDestroy {
   @ViewChild('inputElement') inputElementRef: ElementRef;
+  searchValue: string;
   searchValue$: Observable<string>;
   searchValueSubscription: Subscription;
 
-  constructor() {}
+  constructor(private repositories: RepositoriesService) {
+    this.searchValue = '';
+  }
 
   ngAfterViewInit() {
     this.searchValue$ = fromEvent(this.inputElementRef.nativeElement, 'input').pipe(
@@ -22,7 +26,7 @@ export class SearchBarComponent implements AfterViewInit, OnDestroy {
     );
 
     this.searchValueSubscription = this.searchValue$.subscribe((val: string) => {
-      console.log(val);
+      this.repositories.searchValue.next(val);
     });
   }
 
