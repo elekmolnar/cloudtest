@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-}
+  githubAPIUrl: 'https://api.github.com/search/',
+};
 
 /*
  * For easier debugging in development mode, you can import the following file
