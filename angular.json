@@ -23,6 +23,9 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": ["src/favicon.ico", "src/assets", "src/manifest.json"],
+            "stylePreprocessorOptions": {
+              "includePaths": ["src/styles/variables/"]
+            },
             "styles": ["src/styles.scss"],
             "scripts": [],
             "es5BrowserSupport": true

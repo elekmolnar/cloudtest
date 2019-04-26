@@ -6,16 +6,26 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule, MatCardModule, MatFormFieldModule, MatIconModule, MatInputModule } from '@angular/material';
+import {
+  MatBadgeModule,
+  MatButtonModule,
+  MatCardModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatProgressBarModule,
+  MatTooltipModule,
+} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RepositoriesService } from './shared/services/repositories.service';
 import { ResultsComponent } from './components/results/results.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RepositoriesAdapter } from './shared/services/repositories.model';
+import { ProgressBarComponent } from './shared/components/progress-bar/progress-bar.component';
 
 @NgModule({
-  declarations: [AppComponent, SearchBarComponent, ResultsComponent],
+  declarations: [AppComponent, SearchBarComponent, ResultsComponent, ProgressBarComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -28,6 +38,9 @@ import { RepositoriesAdapter } from './shared/services/repositories.model';
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
+    MatProgressBarModule,
+    MatBadgeModule,
+    MatTooltipModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [RepositoriesService, RepositoriesAdapter],

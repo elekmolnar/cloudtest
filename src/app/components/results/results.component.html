@@ -1,4 +1,65 @@
-<p>
-  results works!
-</p>
-{{ repositoriesContent | json }}
+<app-progress-bar *ngIf="isLoading"></app-progress-bar>
+
+<div *ngIf="repositoriesContent" fxLayout="column">
+  <mat-card class="result-container" *ngFor="let items of repositoriesContent.items; trackBy: trackId">
+    <div fxLayout="row" fxLayoutAlign="left center" class="owner-container">
+      <div fxFlex="0 1 60%" fxLayoutAlign="left center">
+        <img *ngIf="items.owner.avatar_url" src="{{ items.owner.avatar_url }}" class="owner-avatar" fxFlex="auto" />
+        <span class="mat-body-strong" fxFlex="0 1 60%">{{ items.name }}</span>
+      </div>
+      <a
+        href="{{ items.html_url }}"
+        class="result-html mat-body"
+        target="_blank"
+        fxFlex="0 1 40%"
+        fxLayoutAlign="flex-end"
+        >{{ items.html_url }}</a
+      >
+    </div>
+    <div fxLayoutAlign="left" fxLayout="column">
+      <div>
+        <span class="mat-caption">Owner: </span><span class="mat-body">{{ items.owner.login }}</span>
+      </div>
+      <div>
+        <span class="mat-caption">Description: </span><span class="mat-body">{{ items.description }}</span>
+      </div>
+      <div>
+        <span class="mat-caption">Updated: </span><span class="mat-body">{{ items.updated_at | date: 'medium' }}</span>
+      </div>
+    </div>
+    <div fxLayoutAlign="flex-end">
+      <mat-icon
+        class="result-data"
+        matBadge="{{ items.forks_count }}"
+        matBadgeColor="accent"
+        matTooltip="Forks count: {{ items.forks_count }}"
+        matBadgeSize="small"
+        >share</mat-icon
+      >
+      <mat-icon
+        class="result-data"
+        matBadge="{{ items.watchers_count }}"
+        matBadgeColor="accent"
+        matTooltip="Watchers count: {{ items.watchers_count }}"
+        matBadgeSize="small"
+        >tag_faces</mat-icon
+      >
+      <mat-icon
+        class="result-data"
+        matBadge="{{ items.stargazers_count }}"
+        matBadgeColor="accent"
+        matTooltip="Stargazers count: {{ items.stargazers_count }}"
+        matBadgeSize="small"
+        >star</mat-icon
+      >
+      <mat-icon
+        class="result-data"
+        matBadge="{{ items.open_issues_count }}"
+        matBadgeColor="accent"
+        matTooltip="Open issues count: {{ items.open_issues_count }}"
+        matBadgeSize="small"
+        >bug_report</mat-icon
+      >
+    </div>
+  </mat-card>
+</div>

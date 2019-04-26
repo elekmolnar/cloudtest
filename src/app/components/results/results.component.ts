@@ -11,6 +11,7 @@ import { RepositoriesModel } from '../../shared/services/repositories.model';
 export class ResultsComponent implements OnInit, OnDestroy {
   private subscriptionSearch: Subscription;
   private subscriptionData: Subscription;
+  private isLoading: boolean;
   repositoriesContent: RepositoriesModel;
 
   constructor(private repositories: RepositoriesService) {}
@@ -20,12 +21,18 @@ export class ResultsComponent implements OnInit, OnDestroy {
   }
 
   getRepositoriesData(value: string): void {
+    this.isLoading = true;
     this.subscriptionData = this.repositories
       .items(value)
       .subscribe(
         (repositoriesData: RepositoriesModel) => (this.repositoriesContent = repositoriesData),
-        err => console.log(err)
+        err => console.log(err),
+        () => (this.isLoading = false)
       );
+  }
+
+  trackId(index, item) {
+    return item ? item.id : undefined;
   }
 
   ngOnDestroy() {
