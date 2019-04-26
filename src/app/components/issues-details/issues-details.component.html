@@ -1,0 +1,21 @@
+<div fxFlex="grow" class="issues-container">
+  <span class="mat-title">Latest 5 issue</span>
+  <mat-list dense>
+    <mat-list-item *ngFor="let item of issuesContent?.items | slice: 0:5">
+      <mat-icon matListIcon>bug_report</mat-icon>
+      <p mat-line fxLayoutAlign="space-between">
+        <a href="{{ item.html_url }}" class="issues-html" target="_blank">
+          <span class="mat-body-strong">Title: {{ item.title }}</span></a
+        >
+        <span>{{ item.updated_at | date: 'medium' }}</span>
+      </p>
+      <p mat-line>
+        <span>State: {{ item.state }}</span>
+        <span *ngIf="item.closed_at"> at {{ item.closed_at | date: 'medium' }}</span>
+      </p>
+      <p mat-line>
+        <span mat-line>Comments: {{ item.comments }}</span>
+      </p>
+    </mat-list-item>
+  </mat-list>
+</div>

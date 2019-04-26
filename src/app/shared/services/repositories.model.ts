@@ -30,7 +30,7 @@ interface License {
   node_id: string;
 }
 
-interface Item {
+export interface Item {
   id: number;
   node_id: string;
   name: string;
@@ -88,7 +88,7 @@ interface Item {
   size: number;
   stargazers_count: number;
   watchers_count: number;
-  language: string;
+  language?: string;
   has_issues: boolean;
   has_projects: boolean;
   has_downloads: boolean;

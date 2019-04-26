@@ -17,12 +17,7 @@ export class RepositoriesService {
 
   items(name: string) {
     const url = `${this.repositoryUrl}repositories?q=${name}`;
-    const httpOptions = {
-      headers: new HttpHeaders({
-        Accept: 'application/vnd.github.v3+json',
-      }),
-    };
 
-    return this.http.get(url, httpOptions).pipe(map((res: any) => this.adapter.adapt(res)));
+    return this.http.get(url).pipe(map((res: any) => this.adapter.adapt(res)));
   }
 }

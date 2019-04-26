@@ -1,0 +1,12 @@
+@import 'variables';
+
+.issues-container {
+  .issue-comments {
+    margin: 8px;
+  }
+
+  .issues-html {
+    color: $primary;
+    text-decoration: none;
+  }
+}

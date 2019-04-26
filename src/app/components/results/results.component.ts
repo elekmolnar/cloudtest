@@ -20,7 +20,7 @@ export class ResultsComponent implements OnInit, OnDestroy {
     this.subscriptionSearch = this.repositories.searchValue.subscribe(value => this.getRepositoriesData(value));
   }
 
-  getRepositoriesData(value: string): void {
+  private getRepositoriesData(value: string): void {
     this.isLoading = true;
     this.subscriptionData = this.repositories
       .items(value)

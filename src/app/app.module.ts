@@ -13,7 +13,9 @@ import {
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
+  MatListModule,
   MatProgressBarModule,
+  MatTabsModule,
   MatTooltipModule,
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -23,9 +25,20 @@ import { ResultsComponent } from './components/results/results.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RepositoriesAdapter } from './shared/services/repositories.model';
 import { ProgressBarComponent } from './shared/components/progress-bar/progress-bar.component';
+import { RepositoryDetailsComponent } from './components/repository-details/repository-details.component';
+import { IssuesDetailsComponent } from './components/issues-details/issues-details.component';
+import { IssuesService } from './shared/services/issues.service';
+import { IssuesAdapter } from './shared/services/issues.model';
 
 @NgModule({
-  declarations: [AppComponent, SearchBarComponent, ResultsComponent, ProgressBarComponent],
+  declarations: [
+    AppComponent,
+    SearchBarComponent,
+    ResultsComponent,
+    ProgressBarComponent,
+    RepositoryDetailsComponent,
+    IssuesDetailsComponent,
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -41,9 +54,11 @@ import { ProgressBarComponent } from './shared/components/progress-bar/progress-
     MatProgressBarModule,
     MatBadgeModule,
     MatTooltipModule,
+    MatTabsModule,
+    MatListModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
-  providers: [RepositoriesService, RepositoriesAdapter],
+  providers: [RepositoriesService, RepositoriesAdapter, IssuesService, IssuesAdapter],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
