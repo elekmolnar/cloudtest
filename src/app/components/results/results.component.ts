@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { RepositoriesService } from '../../shared/services/repositories.service';
 import { Subscription } from 'rxjs';
-import { RepositoriesModel } from '../../shared/services/repositories.model';
+import { Item, RepositoriesModel } from '../../shared/services/repositories.model';
 import { IssuesModel } from '../../shared/services/issues.model';
 
 @Component({
@@ -25,13 +25,13 @@ export class ResultsComponent implements OnInit, OnDestroy {
 
   private getRepositoriesData(value: string): void {
     this.isLoading = true;
-    this.subscriptionData = this.repositories
-      .items(value)
-      .subscribe(
-        (repositoriesData: RepositoriesModel) => (this.repositoriesContent = repositoriesData),
-        err => console.log(err),
-        () => (this.isLoading = false)
-      );
+    this.subscriptionData = this.repositories.items(value).subscribe(
+      (repositoriesData: RepositoriesModel) => {
+        this.repositoriesContent = repositoriesData;
+      },
+      err => console.log(err),
+      () => (this.isLoading = false)
+    );
   }
 
   trackId(index, item) {

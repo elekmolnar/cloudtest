@@ -11,6 +11,7 @@ import {
   MatButtonModule,
   MatCardModule,
   MatFormFieldModule,
+  MatGridListModule,
   MatIconModule,
   MatInputModule,
   MatListModule,
@@ -30,6 +31,7 @@ import { IssuesDetailsComponent } from './components/issues-details/issues-detai
 import { IssuesService } from './shared/services/issues.service';
 import { IssuesAdapter } from './shared/services/issues.model';
 import { StatisticsComponent } from './components/statistics/statistics.component';
+import { PieChartComponent } from './shared/components/pie-chart/pie-chart.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { StatisticsComponent } from './components/statistics/statistics.componen
     RepositoryDetailsComponent,
     IssuesDetailsComponent,
     StatisticsComponent,
+    PieChartComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,6 +61,7 @@ import { StatisticsComponent } from './components/statistics/statistics.componen
     MatTooltipModule,
     MatTabsModule,
     MatListModule,
+    MatGridListModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [RepositoriesService, RepositoriesAdapter, IssuesService, IssuesAdapter],
