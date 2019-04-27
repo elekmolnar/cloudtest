@@ -12,7 +12,7 @@ import { IssuesModel } from '../../shared/services/issues.model';
 export class ResultsComponent implements OnInit, OnDestroy {
   private subscriptionSearch: Subscription;
   private subscriptionData: Subscription;
-  private isLoading: boolean;
+  isLoading: boolean;
   repositoriesContent: RepositoriesModel;
   previousIssues: IssuesModel;
   previousId: number;
