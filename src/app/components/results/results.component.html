@@ -10,7 +10,12 @@
       </mat-tab>
       <mat-tab label="Issues">
         <ng-template matTabContent>
-          <app-issues-details [owner]="item.owner.login" [repository]="item.name"></app-issues-details>
+          <app-issues-details
+            [owner]="item.owner.login"
+            [repository]="item.name"
+            [previousIssues]="previousIssues"
+            (issuesLoaded)="setIssues($event)"
+          ></app-issues-details>
         </ng-template>
       </mat-tab>
     </mat-tab-group>

@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { RepositoriesService } from '../../shared/services/repositories.service';
 import { Subscription } from 'rxjs';
 import { RepositoriesModel } from '../../shared/services/repositories.model';
+import { IssuesModel } from '../../shared/services/issues.model';
 
 @Component({
   selector: 'app-results',
@@ -13,6 +14,7 @@ export class ResultsComponent implements OnInit, OnDestroy {
   private subscriptionData: Subscription;
   private isLoading: boolean;
   repositoriesContent: RepositoriesModel;
+  previousIssues: IssuesModel;
 
   constructor(private repositories: RepositoriesService) {}
 
@@ -38,5 +40,9 @@ export class ResultsComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.subscriptionSearch.unsubscribe();
     this.subscriptionData.unsubscribe();
+  }
+
+  setIssues(issues: IssuesModel) {
+    this.previousIssues = issues;
   }
 }
