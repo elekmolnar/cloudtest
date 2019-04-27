@@ -1,6 +1,19 @@
 # Cloudtest
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
+This project is deployed via Netlify. For live demo visit: [https://cloudtest.netlify.com]
+
+## Prerequisites
+
+This project have dependencies that require [Node](https://nodejs.org/en/) 8.9 or higher, together with NPM 5.5.1 or higher.
+
+## Installing
+
+Before the first startup run the following command:
+
+```
+npm install
+```
 
 ## Development server
 

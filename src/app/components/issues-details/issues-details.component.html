@@ -6,16 +6,16 @@
         <mat-icon matListIcon>bug_report</mat-icon>
         <p mat-line fxLayoutAlign="space-between">
           <a href="{{ item.html_url }}" class="issues-html" target="_blank">
-            <span class="mat-body-strong">Title: {{ item.title }}</span></a
+            <span class="mat-body-strong issue-title">Title: {{ item.title }}</span></a
           >
-          <span>{{ item.updated_at | date: 'medium' }}</span>
+          <span class="issue-date">{{ item.updated_at | date: 'medium' }}</span>
         </p>
         <p mat-line>
-          <span>State: {{ item.state }}</span>
+          <span class="issue-state">State: {{ item.state }}</span>
           <span *ngIf="item.closed_at"> at {{ item.closed_at | date: 'medium' }}</span>
         </p>
         <p mat-line>
-          <span mat-line>Comments: {{ item.comments }}</span>
+          <span mat-line class="issue-comments">Comments: {{ item.comments }}</span>
         </p>
       </mat-list-item>
     </mat-list>

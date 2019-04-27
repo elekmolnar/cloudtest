@@ -4,6 +4,7 @@ import { Subject } from 'rxjs';
 import { IssuesService } from '../../shared/services/issues.service';
 import { takeUntil } from 'rxjs/operators';
 import { Item } from '../../shared/services/repositories.model';
+import { PieDataModel } from '../../shared/components/pie-chart/pie-data.model';
 
 @Component({
   selector: 'app-statistics',

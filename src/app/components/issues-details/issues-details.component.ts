@@ -25,8 +25,7 @@ export class IssuesDetailsComponent implements OnChanges, OnDestroy {
   ngOnChanges(changes: SimpleChanges): void {
     const previousIssues = changes.previousIssues;
     const id = changes.id;
-    const isNoPreviousContent =
-      (previousIssues && !previousIssues.currentValue) || (id && id.currentValue !== this.previousId);
+    const isNoPreviousContent = previousIssues && !previousIssues.currentValue;
     const isNotEqualId = id && id.currentValue !== this.previousId;
     const isEqualId = id && id.currentValue === this.previousId;
     const isPreviousContent = previousIssues && previousIssues.currentValue;
@@ -39,7 +38,7 @@ export class IssuesDetailsComponent implements OnChanges, OnDestroy {
     }
   }
 
-  private getIssues() {
+  getIssues() {
     this.issuesService
       .issues(this.owner, this.repository)
       .pipe(takeUntil(this.unsubscribe))
