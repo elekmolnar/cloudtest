@@ -26,9 +26,12 @@
           <app-statistics
             [owner]="item.owner.login"
             [repository]="item.name"
-            [previousIssues]="previousIssues"
             [repositories]="repositoriesContent"
+            [id]="item.id"
+            [previousIssues]="previousIssues"
+            [previousId]="previousId"
             (issuesLoaded)="setIssues($event)"
+            (issuesId)="setId($event)"
           ></app-statistics>
         </ng-template>
       </mat-tab>

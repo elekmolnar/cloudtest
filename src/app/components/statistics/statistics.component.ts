@@ -16,6 +16,9 @@ export class StatisticsComponent implements OnChanges, OnDestroy {
   @Input() previousIssues: IssuesModel;
   @Input() repositories: RepositoriesModel;
   @Output() issuesLoaded = new EventEmitter<IssuesModel>();
+  @Input() id: number;
+  @Input() previousId: number;
+  @Output() issuesId = new EventEmitter<number>();
   private unsubscribe: Subject<void> = new Subject();
   issuesContent: IssuesModel;
 
@@ -23,9 +26,17 @@ export class StatisticsComponent implements OnChanges, OnDestroy {
 
   ngOnChanges(changes: SimpleChanges): void {
     const previousIssues = changes.previousIssues;
-    if (previousIssues && !previousIssues.currentValue) {
+    const id = changes.id;
+    const isNoPreviousContent =
+      (previousIssues && !previousIssues.currentValue) || (id && id.currentValue !== this.previousId);
+    const isNotEqualId = id && id.currentValue !== this.previousId;
+    const isEqualId = id && id.currentValue === this.previousId;
+    const isPreviousContent = previousIssues && previousIssues.currentValue;
+
+    if (isNoPreviousContent || isNotEqualId) {
       this.getIssues();
-    } else {
+    }
+    if (isPreviousContent && isEqualId) {
       this.issuesContent = previousIssues.currentValue;
     }
   }
@@ -38,6 +49,7 @@ export class StatisticsComponent implements OnChanges, OnDestroy {
         (issuesData: IssuesModel) => {
           this.issuesContent = issuesData;
           this.issuesLoaded.emit(issuesData);
+          this.issuesId.emit(this.id);
         },
         err => console.log(err)
       );
