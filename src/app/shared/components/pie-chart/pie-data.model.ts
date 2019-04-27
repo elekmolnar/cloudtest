@@ -1,4 +1,4 @@
-interface PieDataModel {
+export interface PieDataModel {
   label: string;
   count: number;
 }
