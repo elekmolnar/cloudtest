@@ -10,7 +10,29 @@
       </mat-tab>
       <mat-tab label="Issues">
         <ng-template matTabContent>
-          <app-issues-details [owner]="item.owner.login" [repository]="item.name"></app-issues-details>
+          <app-issues-details
+            [owner]="item.owner.login"
+            [repository]="item.name"
+            [id]="item.id"
+            [previousIssues]="previousIssues"
+            [previousId]="previousId"
+            (issuesLoaded)="setIssues($event)"
+            (issuesId)="setId($event)"
+          ></app-issues-details>
+        </ng-template>
+      </mat-tab>
+      <mat-tab label="Statistics">
+        <ng-template matTabContent>
+          <app-statistics
+            [owner]="item.owner.login"
+            [repository]="item.name"
+            [repositoryItem]="item"
+            [id]="item.id"
+            [previousIssues]="previousIssues"
+            [previousId]="previousId"
+            (issuesLoaded)="setIssues($event)"
+            (issuesId)="setId($event)"
+          ></app-statistics>
         </ng-template>
       </mat-tab>
     </mat-tab-group>

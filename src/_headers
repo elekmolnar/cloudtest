@@ -1,0 +1,4 @@
+/assets/*
+Cache-Control:public;max-age=2592000
+/favicon.ico
+Cache-Control:public;max-age=1296000
