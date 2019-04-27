@@ -1,4 +1,4 @@
-<div fxFlex="grow">
+<div fxFlex="grow" class="repository-details-container" *ngIf="item">
   <div
     fxLayout="row"
     fxLayoutAlign="left center"
@@ -22,13 +22,15 @@
   </div>
   <div fxLayoutAlign="left" fxLayout="column">
     <div>
-      <span class="mat-caption">Owner: </span><span class="mat-body">{{ item.owner.login }}</span>
+      <span class="mat-caption">Owner: </span><span class="mat-body details-owner">{{ item.owner.login }}</span>
     </div>
     <div>
-      <span class="mat-caption">Description: </span><span class="mat-body">{{ item.description }}</span>
+      <span class="mat-caption">Description: </span
+      ><span class="mat-body details-description">{{ item.description }}</span>
     </div>
     <div>
-      <span class="mat-caption">Updated: </span><span class="mat-body">{{ item.updated_at | date: 'medium' }}</span>
+      <span class="mat-caption">Updated: </span
+      ><span class="mat-body details-updated">{{ item.updated_at | date: 'medium' }}</span>
     </div>
     <div>
       <span class="mat-caption" *ngIf="item.language">Language: </span><span class="mat-body">{{ item.language }}</span>

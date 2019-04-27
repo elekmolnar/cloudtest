@@ -12,7 +12,7 @@ export const mockIssuesResponse = {
       id: 401175634,
       node_id: 'MDU6SXNzdWU0MDExNzU2MzQ=',
       number: 6,
-      title: '楼主想问下，你这个脚本，我这边测试无法使用',
+      title: 'Mock Title',
       user: {
         login: 'jackwhich',
         id: 46473862,

@@ -20,7 +20,7 @@ export class PieChartComponent implements AfterViewInit {
   private legendRectSize: number;
   private legendSpacing: number;
   private color: ScaleOrdinal<string, string>;
-  private htmlElement: HTMLElement;
+  htmlElement: HTMLElement;
 
   constructor() {}
 
