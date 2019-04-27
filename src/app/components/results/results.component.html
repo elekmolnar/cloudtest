@@ -13,9 +13,23 @@
           <app-issues-details
             [owner]="item.owner.login"
             [repository]="item.name"
+            [id]="item.id"
             [previousIssues]="previousIssues"
+            [previousId]="previousId"
             (issuesLoaded)="setIssues($event)"
+            (issuesId)="setId($event)"
           ></app-issues-details>
+        </ng-template>
+      </mat-tab>
+      <mat-tab label="Statistics">
+        <ng-template matTabContent>
+          <app-statistics
+            [owner]="item.owner.login"
+            [repository]="item.name"
+            [previousIssues]="previousIssues"
+            [repositories]="repositoriesContent"
+            (issuesLoaded)="setIssues($event)"
+          ></app-statistics>
         </ng-template>
       </mat-tab>
     </mat-tab-group>

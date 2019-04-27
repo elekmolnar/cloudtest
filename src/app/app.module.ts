@@ -29,6 +29,7 @@ import { RepositoryDetailsComponent } from './components/repository-details/repo
 import { IssuesDetailsComponent } from './components/issues-details/issues-details.component';
 import { IssuesService } from './shared/services/issues.service';
 import { IssuesAdapter } from './shared/services/issues.model';
+import { StatisticsComponent } from './components/statistics/statistics.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { IssuesAdapter } from './shared/services/issues.model';
     ProgressBarComponent,
     RepositoryDetailsComponent,
     IssuesDetailsComponent,
+    StatisticsComponent,
   ],
   imports: [
     BrowserModule,

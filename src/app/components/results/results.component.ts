@@ -15,6 +15,7 @@ export class ResultsComponent implements OnInit, OnDestroy {
   private isLoading: boolean;
   repositoriesContent: RepositoriesModel;
   previousIssues: IssuesModel;
+  previousId: number;
 
   constructor(private repositories: RepositoriesService) {}
 
@@ -44,5 +45,9 @@ export class ResultsComponent implements OnInit, OnDestroy {
 
   setIssues(issues: IssuesModel) {
     this.previousIssues = issues;
+  }
+
+  setId(id: number) {
+    this.previousId = id;
   }
 }
