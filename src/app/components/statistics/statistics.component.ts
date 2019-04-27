@@ -1,9 +1,9 @@
-import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnDestroy, Output, SimpleChanges } from '@angular/core';
 import { IssuesModel } from '../../shared/services/issues.model';
 import { Subject } from 'rxjs';
 import { IssuesService } from '../../shared/services/issues.service';
 import { takeUntil } from 'rxjs/operators';
-import { Item, RepositoriesModel } from '../../shared/services/repositories.model';
+import { Item } from '../../shared/services/repositories.model';
 
 @Component({
   selector: 'app-statistics',
